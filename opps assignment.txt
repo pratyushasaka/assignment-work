@@ -1,0 +1,92 @@
+10
+-----------------------------------------------
+import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.text.ParseException;
+public class Main
+{
+   static String str;
+  public static boolean ValidateDate(String str)
+  {
+      
+      if(str.trim().equals(""))
+      {
+          return true;
+      }
+      else
+      {
+          SimpleDateFormat ob=new SimpleDateFormat("dd-MM-yyyy");
+          ob.setLenient(false);
+          try
+          {
+              Date javaDate=ob.parse(str);
+              System.out.println("Valid");
+          }
+          catch(ParseException e)
+          {
+          System.out.println("Invalid");
+          return false;
+      }
+      return true;
+      }
+  }
+      public static void main(String args[])
+      {
+        Scanner sn=new Scanner(System.in);
+        str=sn.nextLine() ;
+        ValidateDate(str);
+      }
+
+  }
+ 
+12
+----------------------------------
+import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.text.ParseException;
+public class Main
+{
+   static String str;
+  public static boolean ValidateDate(String str)
+  {
+      if(str==null)
+      {
+          return false;
+      }
+      int len =str.length();
+      int count=0;
+      for(int i=1;i<len;i++)
+      {
+        if(str.charAt(i)=='a')
+        {
+            count++;
+        }
+
+      }
+      if(count%2!=0 || count==0)
+      {
+          System.out.println("Valid");
+      }
+      else{
+        System.out.println("Invalid");
+      }
+
+    return true;
+  }
+      public static void main(String args[])
+      {
+        Scanner sn=new Scanner(System.in);
+        str=sn.nextLine() ;
+        ValidateDate(str);
+      }
+
+  }
+
+
+11
+----------------------------
+
+
+

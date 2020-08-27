@@ -1,0 +1,137 @@
+1.
+-------------------------------------
+import java.util.Scanner;
+public class Main
+{
+    public static void main(String[] args)
+    {
+        try{
+        int n,b;
+        Scanner s=new Scanner(System.in);
+        System.out.print("Enter no.of overs\n");
+        n=s.nextInt();
+        int a[]=new int[n];
+        System.out.println("Enter the number of runs for each over\n");
+        for(int i=0;i<n;i++)
+        {
+            a[i]=s.nextInt();
+        }
+        System.out.print("Enter the over number\n");
+        b=s.nextInt();
+        System.out.println("Runs scored in this over:"+a[b-1]);
+        }
+        catch(ArrayIndexOutOfBoundsException|NegativeArraySizeException e)
+        {
+            e.printStackTrace();
+
+        }
+
+    }
+}
+
+2
+-----------------------------
+
+import java.util.Scanner;
+class CustomException extends Exception
+{
+public CustomException(String str)
+{
+    System.out.println("customException:"+str);
+}
+}
+public class Age
+{
+    public static void main(String[] args)
+    {
+        String name;
+        int age;
+        Scanner s=new Scanner(System.in);
+        System.out.print("enter the player name\n");
+        name=s.nextLine();
+        System.out.print("enter the player age\n");
+        age=s.nextInt();
+        try{
+            if(age>=19)
+            {
+                System.out.println("player name:"+name);
+                System.out.println("player age:"+age);
+            }
+            else{
+                throw new CustomException("InvalidAgeRangeException");
+            }
+
+
+        }
+        catch(CustomException e)
+       {
+
+       }
+
+    }
+}
+
+3
+---------------------------
+
+import java.util.Scanner;
+class CustomException extends Exception
+{
+public CustomException(String str)
+{
+    System.out.println("TeamNameNotFoundException:"+str);
+}
+}
+public class Ipl
+{
+    public static void main(String[] args)
+    {
+        String wname,rname;
+        String[] teams={"chennai Super kings","Deccan Charges","Delhi Daredevils","Kings X1 Punjab","Kolkata Knight Riders","Mumbai Indians","Rajasthan Royals","Royal Challengers Bangalore"};
+        Scanner s=new Scanner(System.in);
+        System.out.print("Enter the expected winner team of IPL Season 4\n");
+        wname=s.nextLine();
+        System.out.print("Enter the expected runner team of IPL Season 4\n");
+        rname=s.nextLine();
+
+            int count=0,p=0;
+            for(int i=0;i<teams.length;i++)
+            {
+            if(wname.equals(teams[i]))
+            {
+                System.out.println("Expected IPL Season 4 winner:"+wname);
+                count++;
+
+            }
+
+
+            if(rname.equals(teams[i]))
+            {
+                System.out.println("Expected IPL Season 4 runner:"+rname);
+                p++;
+
+            }
+            }
+           try{
+
+            if(count==0)
+            {
+                throw new CustomException("Entered team is not a part of IPL Season 4");
+            }
+            if(p==0)
+            {
+                throw new CustomException("Entered team is not a part of IPL Season 4");
+
+            }
+
+
+
+            }
+        catch(CustomException e)
+       {
+
+       }
+
+    }
+}
+
